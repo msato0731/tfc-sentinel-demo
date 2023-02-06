@@ -3,3 +3,7 @@ mock "tfplan/v2" {
     source = "mock-tfplan-v2.sentinel"
   }
 }
+
+policy "restrict-aws-instances-type-and-tag" {
+  enforcement_level = "hard-mandatory"
+}
