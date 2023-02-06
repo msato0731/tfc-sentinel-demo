@@ -9,11 +9,23 @@ mandatory_tags = [
     "Name",
 ]
 
+allowed_types = [
+    "t3.micro",
+    "t3.small",
+    "t3.medium",
+]
+
 mandatory_instance_tags = rule {
     all ec2_instances as _, instance {
         all mandatory_tags as mt {
             instance.change.after.tags contains mt
         }
+    }
+}
+
+instance_type_allowd = rule {
+    all ec2_instances as _, instance {
+        instance.change.after.instance_type in allowed_types
     }
 }
 
