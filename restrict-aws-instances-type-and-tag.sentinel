@@ -23,7 +23,7 @@ mandatory_instance_tags = rule {
     }
 }
 
-instance_type_allowd = rule {
+instance_type_allowed = rule {
     all ec2_instances as _, instance {
         instance.change.after.instance_type in allowed_types
     }
